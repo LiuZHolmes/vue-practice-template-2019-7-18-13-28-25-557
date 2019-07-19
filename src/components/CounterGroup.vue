@@ -10,11 +10,11 @@ import Counter from './Counter.vue'
 export default {
   name: 'CounterGroup',
   props: {
-      // count: Number
+      initialCount: Number
   },
   data() {
     return {
-      count: 1
+       count: this.initialCount
     }
   },
   methods: {

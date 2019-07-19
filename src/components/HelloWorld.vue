@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <counter-group count="12"></counter-group>
+    <counter-group v-bind:initialCount="12"></counter-group>
   </div>
 </template>
 
