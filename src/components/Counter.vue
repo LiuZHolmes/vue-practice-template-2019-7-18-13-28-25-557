@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-     <span><input type="button" v-on:click="sub" value="-"></span>
+     <span><input type="button" v-on:click="sub"  value="-"></span>
      <span> {{num}} </span>
      <span><input type="button" v-on:click="add" value="+"></span>
   </div>
@@ -17,9 +17,11 @@ export default {
   methods: {
     sub() {
       this.num--;
+      this.$emit('data-change',-1);
     },
     add() {
       this.num++;
+      this.$emit('data-change',1);
     }
   }
   

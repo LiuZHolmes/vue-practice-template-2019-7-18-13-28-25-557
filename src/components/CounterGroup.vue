@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-     <span><input v-model.number="count"></span>
-     <Counter v-for="n in count" :key="n"></Counter>
+     <span><input v-on:input="countSum" v-model.number="count"></span>
+     <Counter ref="counters" v-on:data-change="passNum" v-for="n in count" :key="n"></Counter>
   </div>
 </template>
 
@@ -18,7 +18,18 @@ export default {
     }
   },
   methods: {
-    
+    passNum(num) {
+      this.$emit('countSum',num);
+    },
+    countSum() {
+        let sum = 0;
+        let counters = this.$refs.counters;
+        let length = Math.min(this.count,counters.length)
+        for (let i = 0; i < length; i++) {
+            sum += counters[i].num;
+        }
+      this.$emit('change-sum',sum);
+    }
   },
   components: {
     Counter
