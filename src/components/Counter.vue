@@ -8,10 +8,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: Number
-  },
+  name: 'Counter',
   data() {
     return {
       num: 0

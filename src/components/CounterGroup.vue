@@ -1,13 +1,17 @@
 <template>
   <div class="hello">
-    <counter-group count="12"></counter-group>
+     <span><input v-model.number="count"></span>
+     <Counter v-for="n in count" :key="n"></Counter>
   </div>
 </template>
 
 <script>
-import CounterGroup from './CounterGroup.vue'
+import Counter from './Counter.vue'
 export default {
-  name: 'HelloWorld',
+  name: 'CounterGroup',
+  props: {
+      // count: Number
+  },
   data() {
     return {
       count: 1
@@ -17,7 +21,7 @@ export default {
     
   },
   components: {
-    CounterGroup
+    Counter
   }
 }
 </script>
