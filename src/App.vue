@@ -7,9 +7,30 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Vue from 'vue'
+import Vuex from 'vuex'
 
+Vue.use(Vuex)
+
+const store = new Vuex.Store({
+  state: {
+    sum: 0
+  },
+  mutations: {
+    increment (state) {
+      state.sum++
+    },
+    decrement (state) {
+      state.sum--
+    },
+    setSum (state,payload) {
+      state.sum = payload;
+    }
+  }
+})
 export default {
   name: 'app',
+  store,
   components: {
     HelloWorld
   }

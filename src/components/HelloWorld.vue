@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <counter-group v-on:change-sum="changeSum" v-on:countSum="countSum" :initialCount="2"></counter-group>
+    <counter-group :initialCount="2"></counter-group>
     <span>{{sum}}</span>
   </div>
 </template>
@@ -11,17 +11,15 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      count: 1,
-      sum : 0
+      count: 1
+    }
+  },
+  computed: {
+    sum() {
+      return this.$store.state.sum;
     }
   },
   methods: {
-    countSum(num) {
-      this.sum += num;
-    },
-    changeSum(num) {
-      this.sum = num;
-    }
   },
   components: {
     CounterGroup

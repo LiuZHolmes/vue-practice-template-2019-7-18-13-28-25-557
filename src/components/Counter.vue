@@ -17,11 +17,11 @@ export default {
   methods: {
     sub() {
       this.num--;
-      this.$emit('data-change',-1);
+      this.$store.commit('decrement');
     },
     add() {
       this.num++;
-      this.$emit('data-change',1);
+      this.$store.commit('increment');
     }
   }
   
